@@ -1,0 +1,20 @@
+<svg width="360" height="300" viewBox="0 0 360 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="pink-stripes" patternUnits="userSpaceOnUse" width="12" height="12" patternTransform="rotate(35)">
+      <rect width="6" height="12" fill="#ff99b9"/>
+      <rect x="6" width="6" height="12" fill="transparent"/>
+    </pattern>
+    <linearGradient id="pink-fade" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffbdd1" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#ffd8e5" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+  <path
+    d="M130 12C63 18 14 74 9 137c-5 63 24 133 105 151s169-5 220-60c51-55 30-144-35-182S197 4 130 12Z"
+    fill="url(#pink-stripes)"
+  />
+  <path
+    d="M130 12C63 18 14 74 9 137c-5 63 24 133 105 151s169-5 220-60c51-55 30-144-35-182S197 4 130 12Z"
+    fill="url(#pink-fade)"
+  />
+</svg>

@@ -1,0 +1,20 @@
+<svg width="360" height="300" viewBox="0 0 360 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="blue-stripes" patternUnits="userSpaceOnUse" width="12" height="12" patternTransform="rotate(35)">
+      <rect width="6" height="12" fill="#8fc7ff"/>
+      <rect x="6" width="6" height="12" fill="transparent"/>
+    </pattern>
+    <linearGradient id="blue-fade" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a6d8ff" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#cae9ff" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+  <path
+    d="M128 16C58 27 7 86 6 151c-1 65 51 135 140 148s158-26 195-88c37-62 18-150-53-185C217 9 198 5 128 16Z"
+    fill="url(#blue-stripes)"
+  />
+  <path
+    d="M128 16C58 27 7 86 6 151c-1 65 51 135 140 148s158-26 195-88c37-62 18-150-53-185C217 9 198 5 128 16Z"
+    fill="url(#blue-fade)"
+  />
+</svg>
