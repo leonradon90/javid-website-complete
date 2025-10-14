@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useMemo, useState } from "react";
 
-const HERO_IMAGE = "";
+const HERO_IMAGE = "/images/hero-javid.png";
 const PHONE_IMAGE = "/images/ya-apteka-phone.png";
 
 const navLinks = [
@@ -13,6 +13,21 @@ const navLinks = [
   { label: "Projects", href: "#portfolio" },
   { label: "Testimonials", href: "#testimonials" },
   { label: "Pricing", href: "#pricing" },
+];
+
+const heroHighlights = [
+  {
+    title: "Task estimate in 10 minutes",
+    description: "Deadlines, milestones, and budget right after the first call.",
+  },
+  {
+    title: "Full cycle product development",
+    description: "Design, development, integrations, analytics, launch support.",
+  },
+  {
+    title: "30 USD/hour or fixed price",
+    description: "Pick the model that matches the task and share the risk fairly.",
+  },
 ];
 
 const services = [
@@ -158,7 +173,7 @@ function SectionTitle({ label, align = "center" }) {
 function BlurField({ gradient, className }) {
   return (
     <div
-      aria-hidden
+      aria-hidden="true"
       className={`pointer-events-none absolute blur-[160px] ${className}`}
       style={{ background: gradient }}
     />
@@ -167,8 +182,8 @@ function BlurField({ gradient, className }) {
 
 function HeaderNav() {
   return (
-    <nav className="flex items-center justify-center gap-3 text-[10px] font-semibold uppercase tracking-[0.4em] text-[#9ea6ba] md:text-xs">
-      <span>{"<"}</span>
+    <nav className="mx-auto flex w-full max-w-3xl items-center justify-center gap-3 rounded-full border border-white/70 bg-white/75 px-6 py-3 text-[10px] font-semibold uppercase tracking-[0.4em] text-[#8f98b4] shadow-[0_25px_60px_-40px_rgba(73,96,255,0.6)] backdrop-blur md:text-xs">
+      <span className="text-[#ff6d85]">{"<"}</span>
       <div className="flex flex-wrap items-center justify-center gap-4">
         {navLinks.map((link) => (
           <a key={link.href} href={link.href} className="transition hover:text-[#ff5151]">
@@ -176,63 +191,100 @@ function HeaderNav() {
           </a>
         ))}
       </div>
-      <span>{"/>"}</span>
+      <span className="text-[#ff6d85]">{"/>"}</span>
     </nav>
   );
 }
 
 function HeroSection() {
   return (
-    <header className="relative z-10 mx-auto max-w-6xl px-6 pt-10">
-      <HeaderNav />
+    <header className="relative z-10 overflow-hidden pt-10">
+      <div className="absolute inset-x-0 top-[-10rem] h-[32rem] bg-gradient-to-br from-[#f6f1ff] via-[#eef6ff] to-[#ffe8f2]" aria-hidden="true" />
+      <div className="absolute left-[15%] top-[-6rem] h-[24rem] w-[24rem] rounded-full bg-[radial-gradient(circle_at_center,rgba(116,148,255,0.35),rgba(116,148,255,0))] blur-[80px]" aria-hidden="true" />
+      <div className="absolute right-[-8rem] top-[4rem] h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,157,186,0.38),rgba(255,157,186,0))] blur-[90px]" aria-hidden="true" />
 
-      <div className="mt-14 grid gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-end lg:gap-20">
-        <div className="order-2 space-y-6 text-center lg:order-1 lg:text-left">
-          <div className="space-y-4">
-            <h1 className="font-heading text-5xl leading-tight text-[#1e2a56] md:text-[58px] md:leading-[1.05]">
-              Hello, I am Javid
-            </h1>
-            <p className="text-base text-[#586487] md:text-lg">
-              I build websites, apps, bots, and automation fast and to the point so your product launches and grows without friction.
-            </p>
+      <div className="relative mx-auto max-w-6xl px-6 pb-24">
+        <HeaderNav />
+
+        <div className="mt-16 grid gap-16 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end">
+          <div className="space-y-8">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/80 px-5 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-[#6c7ba0] shadow-[0_20px_40px_-30px_rgba(71,98,255,0.9)]">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#ff6d85]" />
+              Product developer
+            </div>
+            <div className="space-y-4">
+              <h1 className="font-heading text-5xl leading-[1.08] text-[#1e2a56] md:text-[64px] md:leading-[1.05]">
+                Hello, I’m <span className="bg-gradient-to-r from-[#3253ff] via-[#5f63ff] to-[#ff6aa0] bg-clip-text text-transparent">Javid</span>
+              </h1>
+              <p className="max-w-xl text-base text-[#586487] md:text-lg">
+                I build websites, mobile apps, Telegram bots, and automation so your product launches quickly, scales reliably, and keeps growing without friction.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 text-sm font-semibold sm:flex-row sm:items-center sm:gap-4">
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center rounded-full bg-[#ff5151] px-8 py-3 text-white shadow-[0_25px_55px_-30px_rgba(255,81,81,0.95)] transition hover:bg-[#ff3434]"
+              >
+                Discuss the task
+              </a>
+              <a
+                href="#portfolio"
+                className="inline-flex items-center justify-center rounded-full bg-white/90 px-8 py-3 text-[#5b68a1] shadow-[0_20px_40px_-32px_rgba(48,68,255,0.85)] ring-1 ring-[#d7def2] transition hover:text-[#1e2a56]"
+              >
+                See portfolio
+              </a>
+            </div>
+            <div className="flex flex-wrap items-center gap-4 text-xs text-[#5a678f]">
+              <div className="flex items-center gap-3 rounded-full border border-white/70 bg-white/90 px-4 py-2 shadow-[0_20px_45px_-30px_rgba(89,117,255,0.55)]">
+                <div className="h-10 w-10 rounded-full border-2 border-[#ffd8e6] bg-[#ffeef4] shadow-inner shadow-white/50" />
+                <div>
+                  <p className="font-heading text-sm text-[#1e2a56]">Javid Jafarov</p>
+                  <p className="text-[11px] uppercase tracking-[0.3em] text-[#8995b8]">Replies in 1-2 hours</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 rounded-full bg-white/60 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.3em] text-[#7a86ac]">
+                <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-emerald-100 text-[10px] font-semibold text-emerald-600">OK</span>
+                Support until launch
+              </div>
+            </div>
           </div>
-          <div className="flex flex-col gap-4 text-sm font-semibold">
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center rounded-full bg-[#ff5151] px-8 py-3 text-white shadow-lg shadow-[#ffb8b8]/50 transition hover:bg-[#ff3434]"
-            >
-              Discuss on Telegram
-            </a>
-            <a
-              href="mailto:javid.jafarov@gmail.com"
-              className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-[#6c7ba0] shadow-lg ring-1 ring-[#d7def2] transition hover:text-[#1e2a56]"
-            >
-              Write via email
-            </a>
-          </div>
-          <div className="flex items-center justify-center gap-2 text-xs text-[#6c7ba0] lg:justify-start">
-            <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-emerald-100 text-[10px] font-semibold text-emerald-600">
-              OK
-            </span>
-            I reply within 1-2 hours
+
+          <div className="relative flex justify-center">
+            <div className="relative h-[520px] w-[360px] max-w-full rounded-[3.75rem] border border-white/70 bg-gradient-to-br from-[#ecf1ff] via-[#f8f2ff] to-[#ffe4f1] shadow-[0_65px_140px_-70px_rgba(56,86,255,0.75)]">
+              <div className="absolute inset-4 rounded-[3.25rem] border border-white/60 bg-white/40 backdrop-blur" />
+              <div className="absolute inset-0 rounded-[3.75rem]" style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.45)" }} />
+              <div className="absolute bottom-0 left-1/2 w-[330px] -translate-x-1/2 translate-y-[12%]">
+                <Image
+                  src={HERO_IMAGE}
+                  alt="Portrait of Javid"
+                  width={360}
+                  height={460}
+                  className="h-auto w-full object-contain"
+                  priority
+                />
+              </div>
+              <div className="absolute left-[-3.5rem] top-[18%] hidden w-40 rounded-3xl border border-white/70 bg-white/90 p-4 text-left shadow-[0_25px_55px_-35px_rgba(64,93,255,0.75)] sm:block">
+                <p className="font-heading text-sm text-[#1e2a56]">Launch-ready MVPs</p>
+                <p className="mt-1 text-[11px] text-[#6c7aa0]">From prototype to production in weeks.</p>
+              </div>
+              <div className="absolute right-[-3rem] bottom-[18%] hidden w-36 rounded-3xl border border-white/70 bg-white/90 p-4 text-left shadow-[0_25px_55px_-35px_rgba(255,107,144,0.7)] sm:block">
+                <p className="font-heading text-sm text-[#1e2a56]">100% transparent</p>
+                <p className="mt-1 text-[11px] text-[#6c7aa0]">Daily demos, reports, and access.</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="order-1 lg:order-2">
-          <div className="relative mx-auto h-[470px] w-[340px] max-w-full rounded-[3.5rem] bg-gradient-to-br from-[#ecf1ff] via-[#f8f3ff] to-[#ffe7f2] shadow-[0_55px_120px_-60px_rgba(64,92,255,0.55)]">
-            <div className="absolute inset-6 rounded-[3rem] bg-gradient-to-br from-white to-[#ffeef5] blur-2xl" />
-            <div className="absolute inset-0 rounded-[3.5rem] border border-white/70" />
-            <div className="absolute bottom-0 left-1/2 w-[320px] -translate-x-1/2 translate-y-[9%] max-w-full">
-              <Image
-                src={HERO_IMAGE}
-                alt="Portrait of Javid"
-                width={320}
-                height={380}
-                className="h-auto w-full object-contain"
-                priority
-              />
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {heroHighlights.map((highlight) => (
+            <div
+              key={highlight.title}
+              className="rounded-[2rem] border border-white/70 bg-white/95 p-6 text-left shadow-[0_28px_60px_-42px_rgba(69,92,255,0.6)] backdrop-blur transition hover:-translate-y-1 hover:shadow-[0_30px_70px_-36px_rgba(69,92,255,0.65)]"
+            >
+              <p className="font-heading text-base text-[#1e2a56]">{highlight.title}</p>
+              <p className="mt-2 text-sm text-[#586487]">{highlight.description}</p>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </header>
@@ -241,18 +293,22 @@ function HeroSection() {
 
 function IntroCard() {
   return (
-    <section className="relative z-10 mt-16">
-      <div className="mx-auto max-w-3xl px-6">
-        <div className="rounded-[2.5rem] border border-white/80 bg-white/96 p-9 text-center shadow-xl shadow-[#dfe3ff]/60 backdrop-blur">
-          <p className="font-heading text-base text-[#1e2a56]">
-            Once I get the task, I jump in and get it done.
-          </p>
-          <p className="mt-3 text-sm text-[#566387]">
-            Experience, speed, and results. Expect transparent communication, regular demos, and confident delivery from the first hours.
-          </p>
-          <p className="mt-5 font-heading text-xs uppercase tracking-[0.3em] text-[#ff6f91]">
-            Rate - 30 USD/hour or a fixed price by agreement
-          </p>
+    <section className="relative z-20 -mt-6 md:-mt-10">
+      <div className="mx-auto max-w-4xl px-6">
+        <div className="relative overflow-hidden rounded-[3rem] border border-white/70 bg-white/95 px-10 py-12 text-center shadow-[0_55px_130px_-70px_rgba(65,94,255,0.6)] backdrop-blur">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,215,236,0.7),rgba(255,215,236,0))]" aria-hidden="true" />
+          <div className="absolute inset-x-6 bottom-0 h-1 rounded-full bg-gradient-to-r from-[#ff6f91] via-[#ff9bb5] to-[#ffd5e7] opacity-80" aria-hidden="true" />
+          <div className="relative space-y-4">
+            <p className="font-heading text-lg text-[#1e2a56] md:text-xl">
+              Once I get the task, I dive in and deliver the result.
+            </p>
+            <p className="text-sm text-[#566387] md:text-base">
+              Expect a clear structure, transparent communication, demos for every milestone, and a launch-ready product without micromanagement.
+            </p>
+            <p className="font-heading text-xs uppercase tracking-[0.32em] text-[#ff6f91]">
+              Rate — 30 USD/hour or a fixed price by agreement
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -262,19 +318,21 @@ function IntroCard() {
 function ServicesSection() {
   return (
     <section id="what-i-do" className="relative z-10 mt-28">
-      <div className="mx-auto max-w-5xl px-6">
+      <div className="absolute inset-x-0 top-8 mx-auto h-[32rem] max-w-6xl rounded-[3.5rem] bg-gradient-to-br from-[#eff2ff] via-[#f6f0ff] to-[#ffeef6] opacity-80 blur-[2px]" aria-hidden="true" />
+      <div className="relative mx-auto max-w-5xl px-6">
         <SectionTitle label="< WHAT I DO />" />
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service) => (
             <div
               key={service.title}
-              className="rounded-[1.75rem] border border-white/70 bg-white/96 p-6 shadow-lg shadow-[#d9def4]/55 backdrop-blur transition hover:-translate-y-1 hover:shadow-xl"
+              className="group relative overflow-hidden rounded-[1.85rem] border border-white/70 bg-white/95 p-7 shadow-[0_30px_70px_-45px_rgba(69,92,255,0.55)] backdrop-blur transition hover:-translate-y-1 hover:shadow-[0_35px_85px_-45px_rgba(69,92,255,0.65)]"
             >
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#eef2ff] text-xs font-semibold text-[#1e2a56]">
+              <div className="absolute -right-6 -top-6 h-28 w-28 rounded-full bg-[radial-gradient(circle_at_center,rgba(126,151,255,0.25),rgba(126,151,255,0))] opacity-0 transition group-hover:opacity-100" aria-hidden="true" />
+              <div className="relative inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#eef2ff] via-white to-[#ffe9f2] text-xs font-semibold text-[#1e2a56] shadow-inner shadow-white/60">
                 {service.icon}
               </div>
-              <h3 className="mt-6 font-heading text-lg text-[#1e2a56]">{service.title}</h3>
-              <p className="mt-2 text-sm text-[#586487]">{service.description}</p>
+              <h3 className="relative mt-6 font-heading text-lg text-[#1e2a56]">{service.title}</h3>
+              <p className="relative mt-2 text-sm text-[#586487]">{service.description}</p>
             </div>
           ))}
         </div>
